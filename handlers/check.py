@@ -3,10 +3,9 @@ import database.main as db
 import request.main as req
 from aiogram import Bot
 
-
-async def main(bot: Bot):
+async def main(bot: Bot, time):
     while True:
-        await asyncio.sleep(300)
+        await asyncio.sleep(time)
         for user in db.usr_list():
             print(f"[AUTOCHECK] Checking user {user}.")
             usr_id = user[0]
