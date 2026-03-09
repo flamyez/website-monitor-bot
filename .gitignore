@@ -21,8 +21,9 @@ env/
 *.sqlite
 *.sqlite3
 
-# Config
-config.json
-
 # Logs
 *.log
+
+# Windows
+desktop.ini
+Thumbs.db
