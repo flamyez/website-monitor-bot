@@ -85,7 +85,7 @@ async def check_url(call: CallbackQuery):
 async def settings(call: CallbackQuery):
     text = translate(call.from_user.id, "settings_msg")
     await call.message.answer(text, reply_markup=Keyboards.settings(call.from_user.id))
-    print(f"[MAIN] User {call.message.from_user.id} has opened settings.")
+    print(f"[MAIN] User {call.from_user.id} has opened settings.")
     await call.answer()
 
 @dp.callback_query(lambda call: call.data == "chg_url")
@@ -93,7 +93,7 @@ async def chg_url(call: CallbackQuery, state: FSMContext):
     text = translate(call.from_user.id, "settings_url")
     await call.message.answer(text)
     await state.set_state(Form.url)
-    print(f"[MAIN] User {call.message.from_user.id} is changing URL.")
+    print(f"[MAIN] User {call.from_user.id} is changing URL.")
     await call.answer()
 
 
@@ -115,11 +115,11 @@ async def auto_send(call: CallbackQuery):
 
     if send[0] == 0:
         text = translate(call.from_user.id, "settings_autosend_enable")
-        print(f"[MAIN] User {call.message.from_user.id} has enabled automatic send.")
+        print(f"[MAIN] User {call.from_user.id} has enabled automatic send.")
         db.chg_usr(link[0], 1, call.from_user.id)
     else:
         text = translate(call.from_user.id, "settings_autosend_disable")
-        print(f"[MAIN] User {call.message.from_user.id} has disabled automatic send.")
+        print(f"[MAIN] User {call.from_user.id} has disabled automatic send.")
         db.chg_usr(link[0], 0, call.from_user.id)
 
     await call.message.answer(text)
@@ -131,7 +131,7 @@ async def auto_send(call: CallbackQuery):
 async def lang_menu(call: CallbackQuery):
     text = translate(call.from_user.id, "settings_lang")
     await call.message.answer(text, reply_markup=Keyboards.languages(call.from_user.id))
-    print(f"[MAIN] User {call.message.from_user.id} is changing language.")
+    print(f"[MAIN] User {call.from_user.id} is changing language.")
     await call.answer()
 
 
@@ -140,7 +140,7 @@ async def set_language(call: CallbackQuery):
     lang_code = call.data.split("_")[-1]  # Получаем ru/ua/en/de/fr
     db.chg_lang(call.from_user.id, lang_code)
     text = translate(call.from_user.id, "lang_msg")
-    print(f"[MAIN] User {call.message.from_user.id} has changed language to {lang_code}.")
+    print(f"[MAIN] User {call.from_user.id} has changed language to {lang_code}.")
     await call.message.answer(text)
     await call.answer()
 
