@@ -13,9 +13,9 @@ def init():
     connection.commit()
     print("[DATABASE] Database created successfully.")
 
-def add_usr(id):
+def add_usr(id, lang):
     sql = "INSERT INTO users (user_id, link, send, status, lang) VALUES (?, ?, ?, ?, ?)"
-    cursor.execute(sql, (id, 'https://google.com/', 0, 1, 'en'))
+    cursor.execute(sql, (id, 'https://google.com/', 0, 1, lang))
     connection.commit()
     print(f"[DATABASE] User {id} added successfully.")
 
