@@ -18,5 +18,7 @@
   "lang_en": "🇺🇸 English",
   "lang_de": "🇩🇪 German",
   "lang_fr": "🇫🇷 French",
-  "lang_msg": "✅ Language successfully changed to English."
+  "lang_msg": "✅ Language successfully changed to English.",
+  "site_down": "⚠️ Website {url} has gone down!",
+  "site_up": "✅ Website {url} is back online."
 }

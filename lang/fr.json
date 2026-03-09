@@ -18,5 +18,7 @@
   "lang_en": "🇺🇸 Anglais",
   "lang_de": "🇩🇪 Allemand",
   "lang_fr": "🇫🇷 Français",
-  "lang_msg": "✅ Langue changée avec succès en français."
+  "lang_msg": "✅ Langue changée avec succès en français.",
+  "site_down": "⚠️ Le site {url} est tombé en panne !",
+  "site_up": "✅ Le site {url} est de nouveau en ligne."
 }
