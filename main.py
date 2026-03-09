@@ -56,7 +56,7 @@ class Keyboards:
 async def start(message: Message):
     new_usr = db.chk_usr(message.from_user.id)
     if new_usr == 0:
-        db.add_usr(message.from_user.id)
+        db.add_usr(message.from_user.id, config['default_language'])
         print(f"[MAIN] User {message.from_user.id} has been added successfully.")
 
     text = translate(message.from_user.id, "start")
@@ -85,7 +85,7 @@ async def check_url(call: CallbackQuery):
 async def settings(call: CallbackQuery):
     text = translate(call.from_user.id, "settings_msg")
     await call.message.answer(text, reply_markup=Keyboards.settings(call.from_user.id))
-    print(f"[MAIN] User {call.from_user.id} has opened settings.")
+    print(f"[MAIN] User {call.message.from_user.id} has opened settings.")
     await call.answer()
 
 @dp.callback_query(lambda call: call.data == "chg_url")
@@ -102,7 +102,7 @@ async def upd_url(message: Message, state: FSMContext):
     send = db.get_send(message.from_user.id)
     db.chg_usr(message.text, send[0], message.from_user.id)
     text = translate(message.from_user.id, "settings_url_done").format(url=message.text)
-    print(f"[MAIN] User {message.from_user.id} has changed URL to {Form.url}")
+    print(f"[MAIN] User {message.from_user.id} has changed URL to {message.text}")
     await message.answer(text)
     await state.clear()
 
@@ -115,11 +115,11 @@ async def auto_send(call: CallbackQuery):
 
     if send[0] == 0:
         text = translate(call.from_user.id, "settings_autosend_enable")
-        print(f"[MAIN] User {call.from_user.id} has enabled automatic send.")
+        print(f"[MAIN] User {call.message.from_user.id} has enabled automatic send.")
         db.chg_usr(link[0], 1, call.from_user.id)
     else:
         text = translate(call.from_user.id, "settings_autosend_disable")
-        print(f"[MAIN] User {call.from_user.id} has disabled automatic send.")
+        print(f"[MAIN] User {call.message.from_user.id} has disabled automatic send.")
         db.chg_usr(link[0], 0, call.from_user.id)
 
     await call.message.answer(text)
@@ -131,7 +131,7 @@ async def auto_send(call: CallbackQuery):
 async def lang_menu(call: CallbackQuery):
     text = translate(call.from_user.id, "settings_lang")
     await call.message.answer(text, reply_markup=Keyboards.languages(call.from_user.id))
-    print(f"[MAIN] User {call.from_user.id} is changing language.")
+    print(f"[MAIN] User {call.message.from_user.id} is changing language.")
     await call.answer()
 
 
@@ -140,7 +140,7 @@ async def set_language(call: CallbackQuery):
     lang_code = call.data.split("_")[-1]  # Получаем ru/ua/en/de/fr
     db.chg_lang(call.from_user.id, lang_code)
     text = translate(call.from_user.id, "lang_msg")
-    print(f"[MAIN] User {call.from_user.id} has changed language to {lang_code}.")
+    print(f"[MAIN] User {call.message.from_user.id} has changed language to {lang_code}.")
     await call.message.answer(text)
     await call.answer()
 
@@ -148,7 +148,7 @@ async def set_language(call: CallbackQuery):
 async def main():
     db.init()
     print("[MAIN] Bot started.")
-    asyncio.create_task(check.main(bot))
+    asyncio.create_task(check.main(bot, config['check_interval']))
     await dp.start_polling(bot)
 
 
