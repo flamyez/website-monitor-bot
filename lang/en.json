@@ -1,0 +1,22 @@
+{
+  "btn_check_url": "🌐 Check website status",
+  "btn_settings": "⚙️ Settings",
+  "btn_change_url": "🌐 Change URL",
+  "btn_autosend": "📨 Enable/disable notifications",
+  "btn_lang": "🔤 Language",
+  "start": "Hello! This bot allows you to check the status of any website.\nBy default, https://google.com/ is used, but you can set any other URL in settings.\nYou can also enable notifications when the website goes down or comes back online.",
+  "url_work": "✅ Currently, the website {url} is working properly.",
+  "url_error": "❎ Currently, the website {url} is not working.",
+  "settings_msg": "⚙️ Choose below what you want to configure:",
+  "settings_url": "🌐 Enter a new URL to check:",
+  "settings_url_done": "🌐 Now the URL {url} will be used for checking.",
+  "settings_autosend_enable": "📨 You will now receive notifications when the website goes down or comes back online.",
+  "settings_autosend_disable": "📨 You will no longer receive notifications when the website goes down or comes back online.",
+  "settings_lang": "🔤 Choose your preferred language below:",
+  "lang_ru": "🇷🇺 Russian",
+  "lang_ua": "🇺🇦 Ukrainian",
+  "lang_en": "🇺🇸 English",
+  "lang_de": "🇩🇪 German",
+  "lang_fr": "🇫🇷 French",
+  "lang_msg": "✅ Language successfully changed to English."
+}

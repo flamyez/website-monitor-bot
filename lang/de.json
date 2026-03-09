@@ -1,0 +1,22 @@
+{
+  "btn_check_url": "🌐 Website-Status prüfen",
+  "btn_settings": "⚙️ Einstellungen",
+  "btn_change_url": "🌐 URL ändern",
+  "btn_autosend": "📨 Benachrichtigungen ein-/ausschalten",
+  "btn_lang": "🔤 Sprache",
+  "start": "Hallo! Dieser Bot ermöglicht es Ihnen, den Status jeder Website zu überprüfen.\nStandardmäßig wird https://google.com/ verwendet, aber Sie können in den Einstellungen eine andere URL festlegen.\nSie können auch Benachrichtigungen aktivieren, wenn die Website ausfällt oder wieder online geht.",
+  "url_work": "✅ Derzeit funktioniert die Website {url} einwandfrei.",
+  "url_error": "❎ Derzeit funktioniert die Website {url} nicht.",
+  "settings_msg": "⚙️ Wählen Sie unten aus, was Sie konfigurieren möchten:",
+  "settings_url": "🌐 Geben Sie eine neue URL zur Überprüfung ein:",
+  "settings_url_done": "🌐 Jetzt wird die URL {url} zur Überprüfung verwendet.",
+  "settings_autosend_enable": "📨 Sie erhalten jetzt Benachrichtigungen, wenn die Website ausfällt oder wieder online geht.",
+  "settings_autosend_disable": "📨 Sie erhalten keine Benachrichtigungen mehr, wenn die Website ausfällt oder wieder online geht.",
+  "settings_lang": "🔤 Wählen Sie unten Ihre bevorzugte Sprache:",
+  "lang_ru": "🇷🇺 Russisch",
+  "lang_ua": "🇺🇦 Ukrainisch",
+  "lang_en": "🇺🇸 Englisch",
+  "lang_de": "🇩🇪 Deutsch",
+  "lang_fr": "🇫🇷 Französisch",
+  "lang_msg": "✅ Sprache erfolgreich auf Deutsch geändert."
+}
